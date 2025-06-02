@@ -942,3 +942,77 @@ body.dark-mode .social-links a {
         padding: 2rem 1.5rem;
     }
 }
+
+/* Salient Features Section */
+.Salient-Features {
+    padding: 8rem 5%;
+    background-color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.Salient-Features h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.features-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    animation: scrollFeatures 30s linear infinite;
+    width: max-content;
+}
+
+.salient {
+    flex: 0 0 300px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.salient:hover {
+    transform: translateY(-10px);
+}
+
+.salient h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+@keyframes scrollFeatures {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6 - 2rem * 6)); /* Adjusted for 6 items */
+    }
+}
+
+/* Dark mode styles */
+body.dark-mode .Salient-Features {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .salient {
+    background-color: var(--dark-secondary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .salient h3 {
+    color: var(--dark-text);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .salient {
+        flex: 0 0 280px;
+        padding: 1.5rem;
+    }
+}
