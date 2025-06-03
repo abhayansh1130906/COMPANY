@@ -1,6 +1,6 @@
 /* Modern Luxury Design */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
-
+@import "tailwindcss";
 :root {
     --primary-color: #1a1a1a;
     --accent-color: #c8a97e;
@@ -406,6 +406,103 @@ body.dark-mode .service-card i {
 
 body.dark-mode .service-card:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Division Section - match What We Do */
+.division {
+    padding: 8rem 5%;
+    background-color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.division h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.division-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    animation: scrollDivisions 30s linear infinite;
+    width: max-content;
+}
+
+.division-item {
+    flex: 0 0 300px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.division-item:hover {
+    transform: translateY(-10px);
+}
+
+.division-item h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.division-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+@keyframes scrollDivisions {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6 - 2rem * 6)); /* Adjusted for 6 items */
+    }
+}
+
+/* Dark mode styles for Division section */
+body.dark-mode .division {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .division-item {
+    background-color: var(--dark-secondary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .division-item h3 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .division-item p {
+    color: var(--dark-text);
+}
+
+@media (max-width: 768px) {
+  .division-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    animation: none;
+    padding: 0;
+  }
+  .division-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .division-item {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* Responsive design for about section */
