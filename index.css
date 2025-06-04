@@ -1,6 +1,5 @@
 /* Modern Luxury Design */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
-@import "tailwindcss";
 :root {
     --primary-color: #1a1a1a;
     --accent-color: #c8a97e;
@@ -527,6 +526,81 @@ body.dark-mode .division-item p {
         justify-items: center;
     }
 }
+/* Salient Features Section */
+.Salient-Features {
+    padding: 8rem 5%;
+    background-color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.Salient-Features h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.features-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    animation: scrollFeatures 30s linear infinite;
+    width: max-content;
+}
+
+.salient {
+    flex: 0 0 300px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.salient:hover {
+    transform: translateY(-10px);
+}
+
+.salient h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.salient p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+@keyframes scrollFeatures {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6 - 2rem * 6));
+    }
+}
+
+/* Dark mode styles for Salient Features section */
+body.dark-mode .Salient-Features {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .salient {
+    background-color: var(--dark-secondary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .salient h3 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .salient p {
+    color: var(--dark-text);
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
