@@ -601,6 +601,136 @@ body.dark-mode .salient p {
     color: var(--dark-text);
 }
 
+/* GEM Partner Section */
+.GEM-partner {
+    padding: 8rem 5%;
+    background-color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.GEM-partner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.gem-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    animation: scrollGems 30s linear infinite;
+    width: max-content;
+}
+
+.gem-item {
+    flex: 0 0 300px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gem-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gem-logo {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.gem-item:hover .gem-logo {
+    transform: scale(1.1);
+}
+
+/* Pause animation on hover */
+.gem-container:hover {
+    animation-play-state: paused;
+}
+
+/* Enhance dark mode for GEM partners */
+body.dark-mode .gem-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background-color: var(--dark-secondary);
+}
+
+@keyframes scrollGems {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 40 - 2rem * 40));  /* Adjusted for more items */
+    }
+}
+
+/* Dark mode styles for GEM Partner section */
+body.dark-mode .GEM-partner {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .GEM-partner h2 {
+    color: var(--dark-accent);
+}
+
+body.dark-mode .gem-item {
+    background-color: var(--dark-secondary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .gem-item h3 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .gem-item p {
+    color: var(--dark-text);
+}
+
+body.dark-mode .gem-logo {
+    color: var(--dark-accent);
+}
+
+@media (max-width: 768px) {
+    .gem-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        padding: 0;
+    }
+    .gem-item {
+        flex: 0 0 calc(50% - 1rem); /* Two items per row on tablets */
+        max-width: calc(50% - 1rem);
+        padding: 1rem;
+    }
+    .gem-logo {
+        font-size: 2rem;
+    }
+    .gem-item h3 {
+        font-size: 0.9rem;
+    }
+    .gem-item p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gem-item {
+        flex: 0 0 100%; /* One item per row on mobile */
+        max-width: 100%;
+        padding: 0.8rem;
+    }
+    .GEM-partner h2 {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -723,7 +853,8 @@ body.dark-mode .what-we-do {
 }
 
 body.dark-mode .what-we-do-item {
-    background-color: var(--dark-secondary);
+    background: var(--dark-secondary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .what-we-do-item h3 {
