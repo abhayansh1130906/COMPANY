@@ -624,6 +624,15 @@ body.dark-mode .salient p {
     width: max-content;
 }
 
+@keyframes scrollGems {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6 - 2rem * 6)); /* Adjusted to match other sections */
+    }
+}
+
 .gem-item {
     flex: 0 0 300px;
     padding: 2rem;
@@ -654,21 +663,6 @@ body.dark-mode .salient p {
     animation-play-state: paused;
 }
 
-/* Enhance dark mode for GEM partners */
-body.dark-mode .gem-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    background-color: var(--dark-secondary);
-}
-
-@keyframes scrollGems {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-300px * 40 - 2rem * 40));  /* Adjusted for more items */
-    }
-}
-
 /* Dark mode styles for GEM Partner section */
 body.dark-mode .GEM-partner {
     background-color: var(--dark-bg);
@@ -693,6 +687,15 @@ body.dark-mode .gem-item p {
 
 body.dark-mode .gem-logo {
     color: var(--dark-accent);
+}
+
+body.dark-mode .gem-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhance dark mode for GEM partners */
+body.dark-mode .gem-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
