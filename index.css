@@ -659,9 +659,7 @@ body.dark-mode .salient p {
 }
 
 /* Pause animation on hover */
-.gem-container:hover {
-    animation-play-state: paused;
-}
+
 
 /* Dark mode styles for GEM Partner section */
 body.dark-mode .GEM-partner {
