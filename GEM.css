@@ -1,0 +1,55 @@
+.GEM-partner {
+    padding: 8rem 5%;
+    background-color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.GEM-partner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.gem-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    animation: scrollGems 30s linear infinite;
+    width: max-content;
+}
+
+@keyframes scrollGems {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 6 - 2rem * 6)); /* Adjusted to match other sections */
+    }
+}
+
+.gem-item {
+    flex: 0 0 300px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gem-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gem-logo {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.gem-item:hover .gem-logo {
+    transform: scale(1.1);
+}
