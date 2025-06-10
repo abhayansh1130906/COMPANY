@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTM - GEM Partners</title>
     <link rel="stylesheet" href="GEM.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
     <header>
@@ -13,13 +13,6 @@
       <div class="logo">CTM</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#what_we_do">What we do?</a></li>
-        <li><a href="#our_team">Our Team</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="GEM.html" title="Government E-Marketplace">GEM</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about_us">About us</a></li>
       </ul>
       <button id="darkModeToggle" class="dark-mode-toggle">
         <i class="fas fa-moon"></i>
@@ -309,86 +302,33 @@
       </div>
     </div>
   </section>
-
-  <section id="what_we_do" class="what-we-do">
-    <h2>What We Do?</h2>
-    <div class="what-we-do-container">
-      <div class="what-we-do-item">
-        <i class="fas fa-network-wired"></i>
-        <h3>Customized IT services</h3>
-      </div>
-      <div class="what-we-do-item">
-        <i class="fas fa-shield-alt"></i>
-        <h3>System maintenance and integration</h3>
-      </div>
-      <div class="what-we-do-item">
-        <i class="fas fa-server"></i>
-        <h3>Network design and implementation</h3>
-      </div>
-      <!--Dublicate what-we-do?-->
-      <div class="what-we-do-item">
-        <i class="fas fa-network-wired"></i>
-        <h3>Customized IT services</h3>
-
-      </div>
-      <div class="what-we-do-item">
-        <i class="fas fa-shield-alt"></i>
-        <h3>System maintenance and integration</h3>
-      </div>
-      <div class="what-we-do-item">
-        <i class="fas fa-server"></i>
-        <h3>Network design and implementation</h3>
-      </div>
-    </div>
-  </section>
-    <section id="Salient_Features" class="Salient-Features">
-    <h2>Our Salient Features</h2>
-    <div class="features-container">
-      <div class="salient">
-        <h3>Strong brand image in distribution</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>Association with top-tier corporate companies</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>Competent managerial team</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>93% customer retention rate</h3>
-      </div>
-      <div class="salient">
-        <h3>Consistent and profitable performance</h3>
-      </div>
-      <div class="salient">
-        <h3>National-level distribution focus</h3>
-      </div>
-      <!--Dulicate salient features-->
-      <div class="salient">
-        <h3>Strong brand image in distribution</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>Association with top-tier corporate companies</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>Competent managerial team</h3>
-        <p></p>
-      </div>
-      <div class="salient">
-        <h3>93% customer retention rate</h3>
-      </div>
-      <div class="salient">
-        <h3>Consistent and profitable performance</h3>
-      </div>
-      <div class="salient">
-        <h3>National-level distribution focus</h3>
-      </div>
-    </div>
-  </section>
   <!--GEM-partner end-->
+   <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const icon = darkModeToggle.querySelector('i');
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Toggle icon
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
 </body>
 </html>
