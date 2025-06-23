@@ -1286,10 +1286,10 @@ body.dark-mode .close-sidebar {
   .what-we-do-container,
   .testimonials-container,
   .gem-container {
+    animation: scrollFeatures 30s linear infinite !important;
     flex-direction: row;
     width: max-content;
     gap: 2rem;
-    animation: scrollFeatures 30s linear infinite !important;
     padding: 2rem 0;
   }
 }
@@ -1338,7 +1338,6 @@ body.dark-mode .close-sidebar {
     flex-direction: column;
     width: 100%;
     gap: 1rem;
-    animation: none !important;
     padding: 0;
   }
   .what-we-do-item,
@@ -1398,12 +1397,5 @@ body.dark-mode .close-sidebar {
   }
   .footer-logo {
     font-size: 1.1rem;
-  }
-  .features-container,
-  .division-container,
-  .what-we-do-container,
-  .testimonials-container,
-  .gem-container {
-    animation: none !important;
   }
 }
