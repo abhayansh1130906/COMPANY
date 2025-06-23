@@ -43,6 +43,9 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about_us">About us</a></li>
       </ul>
+      <button id="sidebarDarkModeToggle" class="dark-mode-toggle sidebar-dark-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </aside>
   </header>
 
@@ -723,6 +726,7 @@
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
         const closeSidebar = document.getElementById('closeSidebar');
+        const sidebarDarkModeToggle = document.getElementById('sidebarDarkModeToggle');
         
         hamburger.addEventListener('click', () => {
             sidebar.classList.add('sidebar-open');
@@ -736,6 +740,28 @@
                 sidebar.classList.remove('sidebar-open');
             });
         });
+        // Sidebar dark mode toggle
+        if (sidebarDarkModeToggle) {
+            sidebarDarkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                // Sync icon in both toggles
+                const iconMain = document.getElementById('darkModeToggle').querySelector('i');
+                const iconSidebar = sidebarDarkModeToggle.querySelector('i');
+                if (body.classList.contains('dark-mode')) {
+                    iconMain.classList.remove('fa-moon');
+                    iconMain.classList.add('fa-sun');
+                    iconSidebar.classList.remove('fa-moon');
+                    iconSidebar.classList.add('fa-sun');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    iconMain.classList.remove('fa-sun');
+                    iconMain.classList.add('fa-moon');
+                    iconSidebar.classList.remove('fa-sun');
+                    iconSidebar.classList.add('fa-moon');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        }
     </script>
 </body>
 </html>

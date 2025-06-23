@@ -1202,6 +1202,17 @@ body.dark-mode .dark-mode-toggle {
   .hamburger {
     display: block;
   }
+  .dark-mode-toggle:not(.sidebar-dark-toggle) {
+    display: none !important;
+  }
+  .sidebar-dark-toggle {
+    display: block;
+    margin: 2rem auto 1rem auto;
+    font-size: 2rem;
+  }
+}
+.sidebar-dark-toggle {
+  display: none;
 }
 @media (max-width: 900px) {
   .sidebar {
