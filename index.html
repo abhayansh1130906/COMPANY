@@ -11,6 +11,9 @@
   <header>
     <nav>
       <div class="logo">CTM</div>
+      <button id="hamburger" class="hamburger" aria-label="Open navigation">
+        <i class="fas fa-bars"></i>
+      </button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -20,12 +23,27 @@
         <li><a href="GEM.html" title="Government E-Marketplace">GEM</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about_us">About us</a></li>
-        
       </ul>
       <button id="darkModeToggle" class="dark-mode-toggle">
         <i class="fas fa-moon"></i>
       </button>
     </nav>
+    <!-- Sidebar for mobile navigation -->
+    <aside id="sidebar" class="sidebar">
+      <button id="closeSidebar" class="close-sidebar" aria-label="Close navigation">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="sidebar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#what_we_do">What we do?</a></li>
+        <li><a href="#our_team">Our Team</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="GEM.html" title="Government E-Marketplace">GEM</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about_us">About us</a></li>
+      </ul>
+    </aside>
   </header>
 
   <section id="home" class="hero">
@@ -698,6 +716,24 @@
             .catch(error => {
                 console.error('Error:', error);
                 alert('There was an error sending your message. Please try again.');
+            });
+        });
+
+        // Sidebar navigation for mobile
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('sidebar-open');
+        });
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-open');
+        });
+        // Close sidebar when clicking a link
+        document.querySelectorAll('.sidebar-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
             });
         });
     </script>

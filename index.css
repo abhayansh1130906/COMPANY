@@ -1138,25 +1138,87 @@ body.dark-mode .dark-mode-toggle {
     color: var(--accent-color);
 }
 
-/* Social Links */
-.social-links {
+/* Sidebar Navigation for Mobile */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 75vw;
+  max-width: 320px;
+  background: var(--white);
+  box-shadow: 2px 0 16px rgba(0,0,0,0.15);
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.77,0,0.175,1);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+.sidebar-open {
+  transform: translateX(0);
+}
+.close-sidebar {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.sidebar-links {
+  list-style: none;
+  padding: 2rem 1.5rem 0 1.5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.sidebar-links a:hover {
+  color: var(--accent-color);
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+@media (max-width: 900px) {
+  .nav-links {
+    display: none !important;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+@media (max-width: 900px) {
+  .sidebar {
     display: flex;
-    gap: 1.5rem;
+  }
 }
-
-.social-links a {
-    color: var(--white);
-    font-size: 1.8rem;  /* Makes the icons bigger */
-    transition: color 0.3s ease;
+body.dark-mode .sidebar {
+  background: var(--dark-secondary);
 }
-
-.social-links a:hover {
-    color: var(--accent-color);
+body.dark-mode .sidebar-links a {
+  color: var(--dark-text);
 }
-
-/* For dark mode */
-body.dark-mode .social-links a {
-    color: var(--white);
+body.dark-mode .sidebar-links a:hover {
+  color: var(--dark-accent);
+}
+body.dark-mode .close-sidebar {
+  color: var(--dark-text);
 }
 
 /* Responsive Design */
