@@ -1330,22 +1330,23 @@ body.dark-mode .close-sidebar {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  /* Force horizontal layout for feature containers on all screens */
   .what-we-do-container,
   .features-container,
   .division-container,
   .testimonials-container,
   .gem-container {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-    padding: 0;
+    flex-direction: row !important;
+    width: max-content !important;
+    gap: 2rem;
+    padding: 2rem 0;
   }
   .what-we-do-item,
   .salient,
   .division-item,
   .testimonial {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 0 0 300px;
+    max-width: 300px;
     padding: 1.2rem;
   }
   .member-image {
