@@ -1281,6 +1281,17 @@ body.dark-mode .close-sidebar {
   .footer-bottom {
     padding: 2rem 2% 0;
   }
+  .features-container,
+  .division-container,
+  .what-we-do-container,
+  .testimonials-container,
+  .gem-container {
+    flex-direction: row;
+    width: max-content;
+    gap: 2rem;
+    animation: scrollFeatures 30s linear infinite !important;
+    padding: 2rem 0;
+  }
 }
 
 @media (max-width: 768px) {
