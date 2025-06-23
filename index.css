@@ -526,6 +526,7 @@ body.dark-mode .division-item p {
         justify-items: center;
     }
 }
+
 /* Salient Features Section */
 .Salient-Features {
     padding: 8rem 5%;
@@ -659,7 +660,6 @@ body.dark-mode .salient p {
 }
 
 /* Pause animation on hover */
-
 
 /* Dark mode styles for GEM Partner section */
 body.dark-mode .GEM-partner {
@@ -1197,34 +1197,27 @@ body.dark-mode .dark-mode-toggle {
 }
 @media (max-width: 900px) {
   nav {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0;
-    padding: 1rem 2%;
-  }
-  .logo {
-    order: 2;
-    flex: 1 1 auto;
-    text-align: center;
-    font-size: 1.5rem;
-    margin: 0;
+    display: none;
   }
   .hamburger {
-    order: 1;
-    margin-left: 0;
-    margin-right: 0.5rem;
-  }
-  .dark-mode-toggle:not(.sidebar-dark-toggle) {
-    order: 3;
-    margin-left: 0.5rem;
-    margin-right: 0;
-    display: none !important;
-  }
-  .sidebar-dark-toggle {
     display: block;
-    margin: 2rem auto 1rem auto;
+    position: fixed;
+    top: 1.2rem;
+    left: 1.2rem;
+    z-index: 2100;
+    background: none;
+    border: none;
     font-size: 2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  .sidebar {
+    display: flex;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.77,0,0.175,1);
+  }
+  .sidebar.sidebar-open {
+    transform: translateX(0);
   }
 }
 .sidebar-dark-toggle {
@@ -1316,11 +1309,12 @@ body.dark-mode .close-sidebar {
   .what-we-do-container,
   .features-container,
   .division-container,
-  .testimonials-container {
+  .testimonials-container,
+  .gem-container {
     flex-direction: column;
     width: 100%;
     gap: 1rem;
-    animation: none;
+    animation: none !important;
     padding: 0;
   }
   .what-we-do-item,
@@ -1380,5 +1374,12 @@ body.dark-mode .close-sidebar {
   }
   .footer-logo {
     font-size: 1.1rem;
+  }
+  .features-container,
+  .division-container,
+  .what-we-do-container,
+  .testimonials-container,
+  .gem-container {
+    animation: none !important;
   }
 }
