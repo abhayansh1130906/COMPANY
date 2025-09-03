@@ -417,21 +417,14 @@ body.dark-mode .sidebar-dark-toggle:hover {
     }
     
     .gem-item {
-        flex: 0 0 260px;
-        max-width: 260px;
-        padding: 1.5rem;
-        flex: 0 0 240px;
-        max-width: 240px;
-        padding: 1.2rem;
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+        padding: 1rem;
     }
-}
-
-.gem-item h3 {
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.gem-logo {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
+    .gem-logo {
+        font-size: 2rem;
+    }
+    .gem-item h3 {
+        font-size: 0.9rem;
+    }
 }
