@@ -47,6 +47,8 @@
         <i class="fas fa-moon"></i>
       </button>
     </aside>
+    <!-- Sidebar overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
   </header>
 
   <section id="home" class="hero">
@@ -730,23 +732,45 @@
         
         hamburger.addEventListener('click', () => {
             sidebar.classList.add('sidebar-open');
+            document.getElementById('sidebarOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         });
+        
         closeSidebar.addEventListener('click', () => {
             sidebar.classList.remove('sidebar-open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
         });
+        
+        // Close sidebar when clicking overlay
+        document.getElementById('sidebarOverlay').addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
         // Close sidebar when clicking a link
         document.querySelectorAll('.sidebar-links a').forEach(link => {
             link.addEventListener('click', () => {
                 sidebar.classList.remove('sidebar-open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
+        
         // Sidebar dark mode toggle
         if (sidebarDarkModeToggle) {
+            // Sync initial state
+            const iconSidebar = sidebarDarkModeToggle.querySelector('i');
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                iconSidebar.classList.remove('fa-moon');
+                iconSidebar.classList.add('fa-sun');
+            }
+            
             sidebarDarkModeToggle.addEventListener('click', () => {
                 body.classList.toggle('dark-mode');
                 // Sync icon in both toggles
                 const iconMain = document.getElementById('darkModeToggle').querySelector('i');
-                const iconSidebar = sidebarDarkModeToggle.querySelector('i');
                 if (body.classList.contains('dark-mode')) {
                     iconMain.classList.remove('fa-moon');
                     iconMain.classList.add('fa-sun');
