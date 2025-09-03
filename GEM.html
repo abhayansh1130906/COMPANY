@@ -10,6 +10,9 @@
     <header>
     <!--navbar-->
     <nav>
+      <button id="hamburger" class="hamburger" aria-label="Open navigation" style="display: none;">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="logo">CTM</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -18,6 +21,21 @@
         <i class="fas fa-moon"></i>
       </button>
     </nav>
+    
+    <!-- Sidebar for mobile navigation -->
+    <aside id="sidebar" class="sidebar" style="display: none;">
+      <button id="closeSidebar" class="close-sidebar" aria-label="Close navigation">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="sidebar-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+      <button id="sidebarDarkModeToggle" class="dark-mode-toggle sidebar-dark-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </aside>
+    <!-- Sidebar overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
   </header>
   <!--navbar end-->
   <!--GEM-partner-->
@@ -304,6 +322,43 @@
   </section>
   <!--GEM-partner end-->
    <script>
+        // Mobile navigation functionality
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const sidebarDarkModeToggle = document.getElementById('sidebarDarkModeToggle');
+        
+        if (hamburger && sidebar) {
+            hamburger.addEventListener('click', () => {
+                sidebar.classList.add('sidebar-open');
+                document.getElementById('sidebarOverlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close sidebar when clicking overlay
+            document.getElementById('sidebarOverlay').addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close sidebar when clicking a link
+            document.querySelectorAll('.sidebar-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebar.classList.remove('sidebar-open');
+                    document.getElementById('sidebarOverlay').classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+        
+        // Dark mode functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
         const icon = darkModeToggle.querySelector('i');
@@ -313,6 +368,13 @@
             body.classList.add('dark-mode');
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
+            
+            // Sync sidebar toggle if it exists
+            if (sidebarDarkModeToggle) {
+                const iconSidebar = sidebarDarkModeToggle.querySelector('i');
+                iconSidebar.classList.remove('fa-moon');
+                iconSidebar.classList.add('fa-sun');
+            }
         }
 
         darkModeToggle.addEventListener('click', () => {
@@ -328,7 +390,44 @@
                 icon.classList.add('fa-moon');
                 localStorage.setItem('darkMode', 'disabled');
             }
+            
+            // Sync sidebar toggle
+            if (sidebarDarkModeToggle) {
+                const iconSidebar = sidebarDarkModeToggle.querySelector('i');
+                if (body.classList.contains('dark-mode')) {
+                    iconSidebar.classList.remove('fa-moon');
+                    iconSidebar.classList.add('fa-sun');
+                } else {
+                    iconSidebar.classList.remove('fa-sun');
+                    iconSidebar.classList.add('fa-moon');
+                }
+            }
         });
+        
+        // Sidebar dark mode toggle
+        if (sidebarDarkModeToggle) {
+            sidebarDarkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                
+                // Sync both toggles
+                const iconMain = darkModeToggle.querySelector('i');
+                const iconSidebar = sidebarDarkModeToggle.querySelector('i');
+                
+                if (body.classList.contains('dark-mode')) {
+                    iconMain.classList.remove('fa-moon');
+                    iconMain.classList.add('fa-sun');
+                    iconSidebar.classList.remove('fa-moon');
+                    iconSidebar.classList.add('fa-sun');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    iconMain.classList.remove('fa-sun');
+                    iconMain.classList.add('fa-moon');
+                    iconSidebar.classList.remove('fa-sun');
+                    iconSidebar.classList.add('fa-moon');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        }
     </script>
 </body>
 </html>
